@@ -65,3 +65,31 @@ variavel_booleana = verdadeiro
 
 Operações devem ser simples e legíveis,
 evitando qualquer ambiguidade.
+
+## Operadores e Expressões Lógicas
+
+### Operadores Aritméticos
+- +  soma
+- -  subtração
+- *  multiplicação
+- /  divisão
+- %  resto da divisão
+
+### Operadores Relacionais
+- =   igual
+- !=  diferente
+- >   maior
+- <   menor
+- >=  maior ou igual
+- <=  menor ou igual
+
+### Operadores Lógicos
+- E    → todas as condições devem ser verdadeiras
+- OU   → pelo menos uma condição verdadeira
+- NÃO  → inverte o valor lógico
+
+### Expressões Compostas
+Condições podem ser combinadas:
+
+SE (condicao_A E condicao_B)
+SE (condicao_A OU_

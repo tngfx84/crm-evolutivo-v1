@@ -150,6 +150,43 @@ registrar_historico("complexidade_avaliada", cliente_id, nivel_complexidade)
 
 Fim
 
+---
+
+## Algoritmo H — Verificar Permissão de Ação
+
+Início:
+- Entrada: usuario_autorizado, usuario_logado
+
+// Verificação de permissão
+SE (usuario_logado = verdadeiro E usuario_autorizado = verdadeiro)
+  permitir_acao()
+SENÃO
+  bloquear("acao", "permissao_insuficiente")
+  registrar_historico("acao_bloqueada")
+FIM_SE
+
+Fim
+
+---
+
+## Algoritmo I — Identificar Risco Operacional
+
+Início:
+- Entrada: prazo_atrasado, volume_excessivo
+
+// Avaliação de risco
+SE (prazo_atrasado = verdadeiro OU volume_excessivo = verdadeiro)
+  classificar_risco("alto")
+SENÃO
+  classificar_risco("baixo")
+FIM_SE
+
+registrar_historico("risco_avaliado")
+
+Fim
+
+---
+
 ## Conceito de Estado e Validação
 
 Os algoritmos do CRM consideram o estado atual do sistema
