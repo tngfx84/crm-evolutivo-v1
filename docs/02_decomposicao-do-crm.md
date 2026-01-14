@@ -37,3 +37,16 @@ Não fazem parte do núcleo.
 ## Limites do Sistema
 Funcionalidades que não aumentam clareza, controle ou segurança
 não pertencem ao núcleo do sistema.
+
+## Processo de Decomposição das Demandas
+
+Toda demanda registrada no sistema é tratada inicialmente como uma demanda bruta.
+
+O processo de decomposição consiste em:
+- identificar o problema principal
+- separar o problema em partes menores
+- entender quais partes podem ser tratadas imediatamente
+- identificar partes que exigem mais maturidade operacional
+
+A decomposição permite que o sistema evolua de forma progressiva,
+sem exigir que toda a complexidade seja resolvida de uma só vez.

@@ -23,3 +23,17 @@ Sistemas simples deixam de funcionar ao crescer.
 Sistemas complexos exigem uma maturidade que a empresa ainda não tem.
 
 Este sistema nasce para ocupar esse espaço intermediário.
+
+## Demanda Bruta x Demanda Estruturada
+
+As demandas que chegam a um sistema raramente vêm claras ou organizadas.
+Elas costumam misturar problema, expectativa e solução imaginada.
+
+Antes de qualquer tentativa de implementação, é necessário transformar
+a demanda bruta em uma demanda compreensível, separando:
+- o problema real
+- os objetivos esperados
+- as limitações existentes
+
+Este sistema parte do princípio de que nenhuma demanda é implementada
+diretamente sem antes passar por um processo de decomposição.
