@@ -88,6 +88,46 @@ se as regras do sistema continuam sendo respeitadas.
 
 ---
 
+## Algoritmo E — Acompanhar Demandas Até Conclusão
+
+Início:
+- Conjunto de demandas ativas
+
+Passos:
+ENQUANTO (existir demanda com status diferente de "concluída")
+  PARA_CADA (demanda EM demandas_ativas)
+    verificar_status(demanda)
+    SE (status = "pendente")
+      notificar_responsavel(demanda)
+    SENÃO SE (status = "em_execucao")
+      acompanhar_prazo(demanda)
+    FIM_SE
+  FIM_PARA
+FIM_ENQUANTO
+
+Fim:
+- Todas as demandas concluídas
+
+---
+
+## Algoritmo F — Classificar Demanda por Regra
+
+Início:
+- Demanda registrada
+
+Passos:
+SE (demanda.tipo = "recorrente")
+  classificar(demanda, "padrao")
+SENÃO
+  classificar(demanda, "excepcional")
+FIM_SE
+
+registrar_historico("demanda_classificada", demanda)
+
+Fim:
+- Demanda classificada e registrada
+
+
 # Representação em Pseudocódigo (Primeira Camada)
 
 ## Pseudocódigo A — Registrar Nova Demanda

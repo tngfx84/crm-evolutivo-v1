@@ -21,3 +21,25 @@ natural, porém estruturada e sem ambiguidade.
 8. Sem sintaxe de linguagem (sem if/else, sem loops).
    Usar linguagem estruturada:
    "caso regra falhe" / "caso regra passe" apenas como texto curto.
+
+## Estruturas Lógicas Permitidas
+
+### Decisão (Condicional)
+Usar a estrutura:
+
+SE (condicao)
+  executar_acoes
+SENÃO
+  executar_acoes_alternativas
+FIM_SE
+
+### Repetição (Laço)
+Usar a estrutura:
+
+ENQUANTO (condicao)
+  executar_bloco
+FIM_ENQUANTO
+
+PARA_CADA (item EM conjunto)
+  executar_bloco
+FIM_PARA
