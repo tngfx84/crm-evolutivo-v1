@@ -43,3 +43,25 @@ FIM_ENQUANTO
 PARA_CADA (item EM conjunto)
   executar_bloco
 FIM_PARA
+
+## Variáveis e Operações
+
+- Variáveis representam valores armazenados durante a execução do algoritmo.
+- Atribuição é feita com o operador "=".
+
+Exemplos:
+variavel_texto = "valor"
+variavel_inteiro = 3
+variavel_decimal = 2.5
+variavel_booleana = verdadeiro
+
+## Operações Permitidas
+
+- Soma: a + b
+- Subtração: a - b
+- Multiplicação: a * b
+- Divisão: a / b
+- Comparação: =, !=, >, <, >=, <=
+
+Operações devem ser simples e legíveis,
+evitando qualquer ambiguidade.

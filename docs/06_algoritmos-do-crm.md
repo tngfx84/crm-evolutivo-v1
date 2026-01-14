@@ -25,21 +25,33 @@ Fim:
 
 ---
 
-## Algoritmo B — Atualizar Status de Demanda (com Validação)
+## Algoritmo B — Atualizar Status de Demanda (com variáveis)
 
 Início:
-- Receber identificação da demanda e status desejado
+- Entrada: demanda_id, novo_status
 
-Passos:
-1. Identificar o estado atual da demanda
-2. Verificar se a demanda possui responsável definido
-3. Verificar se o status desejado é compatível com o estado atual
-4. Caso alguma regra seja violada, impedir a atualização
-5. Caso as regras sejam respeitadas, atualizar o status
-6. Registrar a mudança no histórico
+// Estado atual
+status_atual = obter_status(demanda_id)
+responsavel_existe = verificar_responsavel(demanda_id)
 
-Fim:
-- Status atualizado ou mudança bloqueada com registro
+// Validações
+SE (responsavel_existe = falso)
+  bloquear("atualizar_status", "demanda_sem_responsavel")
+  registrar_historico("bloqueio", demanda_id)
+  FIM
+FIM_SE
+
+SE (status_atual = "concluida")
+  bloquear("atualizar_status", "demanda_ja_concluida")
+  registrar_historico("bloqueio", demanda_id)
+  FIM
+FIM_SE
+
+// Atualização
+definir_status(demanda_id, novo_status)
+registrar_historico("status_atualizado", demanda_id)
+
+Fim
 
 ---
 
@@ -74,17 +86,6 @@ Passos:
 
 Fim:
 - Demanda encerrada com segurança e rastreabilidade
-
-## Conceito de Estado e Validação
-
-Os algoritmos do CRM consideram o estado atual do sistema
-como base para decisões.
-
-Estado representa a situação de uma entidade em um determinado momento,
-como o status de uma demanda, a maturidade do cliente ou o andamento de um processo.
-
-Antes de executar qualquer ação relevante, o algoritmo valida
-se as regras do sistema continuam sendo respeitadas.
 
 ---
 
@@ -126,6 +127,39 @@ registrar_historico("demanda_classificada", demanda)
 
 Fim:
 - Demanda classificada e registrada
+
+---
+
+## Algoritmo G — Avaliar Complexidade do Cliente
+
+Início:
+- Entrada: cliente_id
+
+// Variáveis
+quantidade_demandas = contar_demandas(cliente_id)
+quantidade_responsaveis = contar_responsaveis(cliente_id)
+
+// Avaliação
+SE (quantidade_demandas > 10)
+  nivel_complexidade = "medio"
+SENÃO
+  nivel_complexidade = "baixo"
+FIM_SE
+
+registrar_historico("complexidade_avaliada", cliente_id, nivel_complexidade)
+
+Fim
+
+## Conceito de Estado e Validação
+
+Os algoritmos do CRM consideram o estado atual do sistema
+como base para decisões.
+
+Estado representa a situação de uma entidade em um determinado momento,
+como o status de uma demanda, a maturidade do cliente ou o andamento de um processo.
+
+Antes de executar qualquer ação relevante, o algoritmo valida
+se as regras do sistema continuam sendo respeitadas.
 
 
 # Representação em Pseudocódigo (Primeira Camada)
