@@ -93,3 +93,16 @@ Condições podem ser combinadas:
 
 SE (condicao_A E condicao_B)
 SE (condicao_A OU_
+
+## Padrão de Estrutura dos Algoritmos
+
+Todo algoritmo do CRM deve seguir:
+
+// Input
+(definir entradas do usuário e referências internas)
+
+// Processamento
+(regras + operações + decisões)
+
+// Output
+(resultado final e registros)
