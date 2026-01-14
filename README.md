@@ -85,3 +85,20 @@ Nada é implementado neste projeto sem respaldo direto no conteúdo técnico.
 Tudo o que exigir conhecimentos ainda não analisados é **explicitamente adiado**.
 
 Este repositório existe para manter um **histórico técnico limpo, rastreável e didático**, transformando aprendizado em camadas reais e conscientes de um produto de software.
+
+## 💡 Demanda e Regras de Negócio
+
+Este CRM é tratado como uma **solução para demandas reais** de operação comercial e atendimento.  
+O valor do sistema não está em “cadastros” ou “telas”, mas nas **regras de negócio** que definem como o trabalho acontece no dia a dia.
+
+Exemplos de demandas que um CRM resolve:
+- registrar e organizar clientes e atendimentos
+- manter histórico confiável de interações
+- padronizar etapas de processo (sem depender de memória)
+- dar visibilidade de status e próximos passos
+
+Neste projeto, qualquer funcionalidade nasce primeiro como:
+1) demanda/necessidade
+2) regra de negócio
+3) modelagem lógica
+4) implementação (apenas quando houver base técnica estudada)
