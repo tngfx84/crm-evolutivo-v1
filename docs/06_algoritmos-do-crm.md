@@ -85,3 +85,59 @@ como o status de uma demanda, a maturidade do cliente ou o andamento de um proce
 
 Antes de executar qualquer ação relevante, o algoritmo valida
 se as regras do sistema continuam sendo respeitadas.
+
+---
+
+# Representação em Pseudocódigo (Primeira Camada)
+
+## Pseudocódigo A — Registrar Nova Demanda
+
+// Entradas
+entrada(cliente_identificacao, descricao_demanda)
+
+// Preparação
+cliente_existe = verificar_existencia_cliente(cliente_identificacao)
+
+// Registro de cliente (se necessário)
+caso cliente_existe falhe:
+  criar_cliente(cliente_identificacao)
+  registrar_historico("cliente_criado", cliente_identificacao)
+
+// Registro de demanda
+demanda_id = criar_demanda(cliente_identificacao, descricao_demanda)
+definir_status(demanda_id, "aberta")
+registrar_historico("demanda_criada", demanda_id)
+
+// Finalização
+retornar(demanda_id)
+fim
+
+## Pseudocódigo B — Atualizar Status de Demanda (com validação)
+
+// Entradas
+entrada(demanda_id, novo_status)
+
+// Estado atual
+status_atual = obter_status(demanda_id)
+responsavel = obter_responsavel(demanda_id)
+
+// Validações
+regra_responsavel = verificar("demanda_tem_responsavel", responsavel)
+regra_transicao = verificar("transicao_permitida", status_atual, novo_status)
+
+caso regra_responsavel falhe:
+  bloquear("atualizar_status", "sem_responsavel")
+  registrar_historico("status_bloqueado", demanda_id)
+  fim
+
+caso regra_transicao falhe:
+  bloquear("atualizar_status", "transicao_invalida")
+  registrar_historico("status_bloqueado", demanda_id)
+  fim
+
+// Atualização
+definir_status(demanda_id, novo_status)
+registrar_historico("status_atualizado", demanda_id)
+
+// Finalização
+fim
