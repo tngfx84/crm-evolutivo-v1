@@ -25,19 +25,21 @@ Fim:
 
 ---
 
-## Algoritmo B — Atualizar Status de Demanda
+## Algoritmo B — Atualizar Status de Demanda (com Validação)
 
 Início:
-- Receber identificação da demanda e novo status
+- Receber identificação da demanda e status desejado
 
 Passos:
-1. Localizar a demanda correspondente
-2. Verificar se a mudança de status é permitida
-3. Atualizar o status da demanda
-4. Registrar a alteração no histórico
+1. Identificar o estado atual da demanda
+2. Verificar se a demanda possui responsável definido
+3. Verificar se o status desejado é compatível com o estado atual
+4. Caso alguma regra seja violada, impedir a atualização
+5. Caso as regras sejam respeitadas, atualizar o status
+6. Registrar a mudança no histórico
 
 Fim:
-- Status atualizado com histórico preservado
+- Status atualizado ou mudança bloqueada com registro
 
 ---
 
@@ -54,3 +56,32 @@ Passos:
 
 Fim:
 - Consciência do nível de maturidade atual
+
+---
+
+## Algoritmo D — Encerrar Demanda com Segurança
+
+Início:
+- Solicitação de encerramento de demanda
+
+Passos:
+1. Identificar o estado atual da demanda
+2. Verificar se todas as etapas obrigatórias foram concluídas
+3. Verificar se existe histórico suficiente da execução
+4. Caso alguma verificação falhe, impedir o encerramento
+5. Caso todas as verificações sejam atendidas, encerrar a demanda
+6. Registrar o encerramento no histórico
+
+Fim:
+- Demanda encerrada com segurança e rastreabilidade
+
+## Conceito de Estado e Validação
+
+Os algoritmos do CRM consideram o estado atual do sistema
+como base para decisões.
+
+Estado representa a situação de uma entidade em um determinado momento,
+como o status de uma demanda, a maturidade do cliente ou o andamento de um processo.
+
+Antes de executar qualquer ação relevante, o algoritmo valida
+se as regras do sistema continuam sendo respeitadas.
