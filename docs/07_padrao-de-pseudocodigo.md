@@ -106,3 +106,14 @@ Todo algoritmo do CRM deve seguir:
 
 // Output
 (resultado final e registros)
+
+## Funções (Definição, Chamada e Retorno)
+
+### Definição
+funcao nome_funcao(param1, param2):
+  (passos)
+  retornar valor
+fim_funcao
+
+### Chamada
+resultado = nome_funcao(valor1, valor2)
